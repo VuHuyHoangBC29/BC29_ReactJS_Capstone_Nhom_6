@@ -4,7 +4,7 @@ import { BASE_URL, TOKEN_CYBERSOFT } from "../constants/common";
 
 export const fetchMovieListApi = () => {
   return request({
-    url: `/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
+    url: `/QuanLyPhim/LayDanhSachPhim?maNhom=GP02`,
     method: "GET",
   });
 };

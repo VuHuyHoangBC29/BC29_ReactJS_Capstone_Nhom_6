@@ -6,3 +6,4 @@ export const fetchMovieShowTimesApi = (movieId) => {
     method: "GET",
   });
 };
+

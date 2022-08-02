@@ -1,11 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchMovieShowTimesApi } from "../../services/cinema";
 import moment from "moment";
 
 export default function ShowTimes() {
+  const navigate = useNavigate();
+
   const params = useParams();
 
   const [showTimes, setShowTimes] = useState({});
@@ -63,9 +65,9 @@ export default function ShowTimes() {
                     {ele.lichChieuPhim.map((ele) => {
                       return (
                         <div key={ele.maLichChieu} className="col-3">
-                          <a href="#">
+                          <Link to={`/booking/${ele.maLichChieu}`}>
                             {moment(ele.ngayChieuGioChieu).format("LLLL")}
-                          </a>
+                          </Link>
                         </div>
                       );
                     })}
@@ -108,9 +110,6 @@ export default function ShowTimes() {
       <div className="col-9">
         <div className="tab-content" id="v-pills-tabContent">
           {renderTabContent()}
-          <div className="tab-pane fade" id="bhd" role="tabpanel">
-            ...
-          </div>
         </div>
       </div>
     </div>

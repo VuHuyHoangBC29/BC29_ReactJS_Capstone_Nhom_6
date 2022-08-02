@@ -37,7 +37,12 @@ export default function MovieList() {
             />
             <div className="card-body">
               <h5 className="card-title">{ele.tenPhim}</h5>
-              <button onClick={() => navigate(`/movie/${ele.maPhim}`)} className="btn btn-info">XEM CHI TIẾT</button>
+              <button
+                onClick={() => navigate(`/movie/${ele.maPhim}`)}
+                className="btn btn-info"
+              >
+                XEM CHI TIẾT
+              </button>
             </div>
           </div>
         </div>

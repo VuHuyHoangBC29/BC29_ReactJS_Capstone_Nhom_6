@@ -1,0 +1,11 @@
+.modal-content {
+  background-color: transparent !important;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content iframe {
+  border-radius: 10px;
+}
