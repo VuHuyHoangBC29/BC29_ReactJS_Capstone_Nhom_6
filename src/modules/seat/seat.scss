@@ -1,0 +1,24 @@
+.ghe {
+  padding: 5px 10px;
+  width: 50px;
+  height: 35px;
+  margin: 0 5px 5px 0;
+  border-radius: 5px;
+  font-weight: bold;
+  &.gheVip {
+    background-color: yellow;
+  }
+  &.dangDat {
+    background-color: rgb(224, 31, 121);
+    color: white;
+  }
+  &:hover {
+    background-color: rgb(224, 31, 121);
+    color: white;
+  }
+  &.daDat {
+    background-color: black;
+    color: white;
+    cursor: no-drop;
+  }
+}

@@ -6,3 +6,11 @@ export const fetchCinemaListApi = (showTimesId) => {
     method: "GET",
   });
 };
+
+export const bookingTicketApi = (data) => {
+  return request({
+    url: `/QuanLyDatVe/DatVe`,
+    method: "POST",
+    data,
+  });
+};

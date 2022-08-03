@@ -1,8 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { USER_INFO_KEY } from "../../constants/common";
+import { setUserInfoAction } from "../../store/actions/userAction";
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  const userState = useSelector((state) => state.userReducer);
+
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem(USER_INFO_KEY);
+    dispatch(setUserInfoAction(null));
+    navigate("/");
+  };
 
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -23,21 +36,36 @@ export default function Header() {
       <div className="collapse navbar-collapse" id="collapsibleNavId">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <NavLink className="nav-link" to="/">
               Home
-            </a>
+            </NavLink>
           </li>
         </ul>
+
         <div className="ml-auto">
-          <button
-            className="btn btn-outline-info my-2 my-sm-0 mr-2"
-            type="sumit"
-          >
-            Register
-          </button>
-          <button className="btn btn-outline-success my-2 my-sm-0">
-            Login
-          </button>
+          {!userState.userInfo ? (
+            <>
+              <button
+                className="btn btn-outline-info my-2 my-sm-0 mr-2"
+                type="sumit"
+              >
+                Register
+              </button>
+              <button
+                onClick={() => navigate("/login")}
+                className="btn btn-outline-success my-2 my-sm-0"
+              >
+                Login
+              </button>
+            </>
+          ) : (
+            <>
+              <span>Xin chào, {userState.userInfo.hoTen}. </span>
+              <button onClick={handleLogout} className="btn btn-danger">
+                LOGOUT
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
