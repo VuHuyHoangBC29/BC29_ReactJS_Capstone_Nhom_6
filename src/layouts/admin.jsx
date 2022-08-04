@@ -4,10 +4,11 @@ import {
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
+  MailOutlined,
 } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
@@ -19,19 +20,38 @@ function getItem(label, key, icon, children) {
   };
 }
 
+// const items = [
+//   getItem("User Management", "1", <UserOutlined />),
+//   getItem("Movie Management", "2", <DesktopOutlined />),
+// ];
+
 const items = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
+  {
+    label: (
+      <Link
+        style={{ textDecoration: "none" }}
+        to="/admin/user-management"
+        rel="noopener noreferrer"
+      >
+        User Management
+      </Link>
+    ),
+    key: "user-management",
+    icon: <UserOutlined />,
+  },
+  {
+    label: (
+      <Link
+        style={{ textDecoration: "none" }}
+        to="/admin/movie-management"
+        rel="noopener noreferrer"
+      >
+        Movie Management
+      </Link>
+    ),
+    key: "movie-management",
+    icon: <DesktopOutlined />,
+  },
 ];
 
 export default function AdminLayout() {
@@ -59,22 +79,17 @@ export default function AdminLayout() {
         <Header
           className="site-layout-background"
           style={{
-            padding: 0,
+            paddingRight: "10px",
+            color: "white",
           }}
-        />
+        >
+          Admin Interface
+        </Header>
         <Content
           style={{
             margin: "0 16px",
           }}
         >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
           <div
             className="site-layout-background"
             style={{

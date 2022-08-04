@@ -1,5 +1,5 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 import AdminGuard from "../guards/admin.guard";
 import AuthGuard from "../guards/auth.guard";
 import NoAuthGuard from "../guards/no-auth.guard";
@@ -10,6 +10,8 @@ import Home from "../pages/home/home";
 import Login from "../pages/login/login";
 import MovieDetail from "../pages/movie-detail/movie-detail";
 import MovieManagement from "../pages/movie-management/movie-management";
+import Register from "../pages/register/register";
+import UserManagement from "../pages/user-management/user-management";
 
 export default function Router() {
   const routing = useRoutes([
@@ -24,6 +26,11 @@ export default function Router() {
         {
           path: "/movie/:movieId",
           element: <MovieDetail />,
+        },
+
+        {
+          path: "/register",
+          element: <Register />,
         },
         {
           path: "/",
@@ -56,8 +63,16 @@ export default function Router() {
           element: <AdminGuard />,
           children: [
             {
+              path: "/admin/",
+              element: <Navigate to="/admin/user-management" />,
+            },
+            {
               path: "/admin/movie-management",
               element: <MovieManagement />,
+            },
+            {
+              path: "/admin/user-management",
+              element: <UserManagement />,
             },
           ],
         },

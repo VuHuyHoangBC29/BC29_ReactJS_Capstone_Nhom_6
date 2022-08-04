@@ -19,9 +19,9 @@ export default function AdminGuard() {
       userState.userInfo.maLoaiNguoiDung !== "QuanTri"
     ) {
       notification.warning({ message: "Access denied!" });
-    }
 
-    return navigate("/");
+      return navigate("/");
+    }
   }, []);
 
   return (
