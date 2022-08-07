@@ -1,0 +1,32 @@
+.header {
+  background-color: transparent;
+  #brand {
+    color: #b61883;
+    font-family: "Pacifico";
+    font-weight: bold;
+    font-size: 40px;
+  }
+
+  .nav-link {
+    color: black;
+    font-size: 17px;
+    font-weight: bolder;
+    transition: all 0.5s;
+    &:hover {
+      color: #b61883;
+    }
+  }
+  .active {
+    color: #b61883;
+  }
+
+  .log-out {
+    border: none;
+    color: black;
+    background-color: transparent;
+    transition: all 0.5s;
+    &:hover {
+      color: #b61883;
+    }
+  }
+}

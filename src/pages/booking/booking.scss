@@ -1,0 +1,35 @@
+#booking {
+  .bookingRight {
+    #screenPosition {
+      .screen {
+        border-bottom: 50px solid #b61883;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        height: 80;
+        width: 90%;
+        filter: drop-shadow(4px 30px 20px rgba(255, 255, 255, 0.5));
+        font-size: 25px;
+        color: #fff;
+        margin: 30px 0;
+      }
+    }
+  }
+
+  #btnDatVe {
+    text-decoration: none;
+    border: 1px solid #b61883;
+    padding: 0.2rem 2rem;
+    background: white;
+    color: white;
+    font-weight: bold;
+    border-radius: 2rem;
+    transition: 0.3s;
+    box-shadow: 0 0 0 3em #b61883 inset;
+
+    &:hover {
+      box-shadow: 0 0 0 1px #b61883 inset;
+
+      color: #b61883;
+    }
+  }
+}

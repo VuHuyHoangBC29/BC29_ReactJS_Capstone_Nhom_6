@@ -5,10 +5,12 @@ import Header from "../components/header/header";
 
 export default function HomeLayout() {
   return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
+    <div>
+      <div className="container-fluid p-0">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </div>
   );
 }

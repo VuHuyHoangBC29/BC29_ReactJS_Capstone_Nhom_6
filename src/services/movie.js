@@ -15,3 +15,10 @@ export const fetchMovieDetailApi = (movieId) => {
     method: "GET",
   });
 };
+
+export const fetchBannerListApi = () => {
+  return request({
+    url: `/QuanLyPhim/LayDanhSachBanner`,
+    method: "GET",
+  });
+};

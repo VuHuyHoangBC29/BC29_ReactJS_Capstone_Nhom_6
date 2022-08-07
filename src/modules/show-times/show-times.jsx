@@ -4,8 +4,12 @@ import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchMovieShowTimesApi } from "../../services/cinema";
 import moment from "moment";
+import "./show-times.scss";
+import { Tabs } from "antd";
 
 export default function ShowTimes() {
+  const { TabPane } = Tabs;
+
   const navigate = useNavigate();
 
   const params = useParams();
@@ -35,7 +39,7 @@ export default function ShowTimes() {
           aria-selected="true"
           key={ele.maHeThongRap}
         >
-          {ele.tenHeThongRap}
+          <img src={ele.logo} alt="image" width={70} height={70} />
         </a>
       );
     });
@@ -53,20 +57,33 @@ export default function ShowTimes() {
           {ele.cumRapChieu.map((ele) => {
             return (
               <div key={ele.maCumRap} className="row mb-5">
-                <div className="col-1">
+                <div className="col-lg-3">
                   <img className="img-fluid rounded" src={ele.hinhAnh} />
                 </div>
-                <div className="col-11 pl-0">
-                  <h5>{ele.tenCumRap}</h5>
-                  <span className="text-muted">{ele.diaChi}</span>
+                <div className="col-lg-9 pl-0">
+                  <h5 id="tenCumRap" className="m-0">
+                    {ele.tenCumRap}
+                  </h5>
+                  <p style={{ fontWeight: "bold" }}>Địa chỉ: {ele.diaChi}</p>
                 </div>
-                <div className="col-12">
+                <div className="col-12 mt-3">
                   <div className="row">
                     {ele.lichChieuPhim.map((ele) => {
                       return (
-                        <div key={ele.maLichChieu} className="col-3">
-                          <Link to={`/booking/${ele.maLichChieu}`}>
-                            {moment(ele.ngayChieuGioChieu).format("LLLL")}
+                        <div key={ele.maLichChieu} className="col-3 mb-3">
+                          <p className="mb-0">
+                            Thời gian:{" "}
+                            <span
+                              style={{ color: "#b61883", fontWeight: "bold" }}
+                            >
+                              {moment(ele.ngayChieuGioChieu).format("LLLL")}
+                            </span>
+                          </p>
+                          <Link
+                            className="btnDatVe"
+                            to={`/booking/${ele.maLichChieu}`}
+                          >
+                            Đặt vé
                           </Link>
                         </div>
                       );
@@ -82,7 +99,7 @@ export default function ShowTimes() {
   };
 
   return (
-    <div className="row">
+    <div id="showTimes" className="row">
       <div className="col-3">
         <div
           className="nav flex-column nav-pills"

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieDetailApi } from "../../services/movie";
 import moment from "moment";
-import "./index.scss";
+import "./detail.scss";
 
 export default function Detail() {
   const params = useParams();
@@ -23,7 +23,7 @@ export default function Detail() {
   };
 
   return (
-    <div className="row">
+    <div id="detail" className="row">
       <div className="col-3">
         <img className="w-100" src={movieDetail.hinhAnh} />
       </div>
@@ -36,7 +36,6 @@ export default function Detail() {
             type="button"
             data-toggle="modal"
             data-target="#trailer"
-            className="btn btn-info mr-2"
           >
             TRAILER
           </button>

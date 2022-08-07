@@ -12,6 +12,7 @@ import MovieDetail from "../pages/movie-detail/movie-detail";
 import MovieManagement from "../pages/movie-management/movie-management";
 import Register from "../pages/register/register";
 import UserManagement from "../pages/user-management/user-management";
+import MovieList from "../pages/movie-list/movie-list";
 
 export default function Router() {
   const routing = useRoutes([
@@ -23,6 +24,12 @@ export default function Router() {
           path: "/",
           element: <Home />,
         },
+
+        {
+          path: "/movie",
+          element: <MovieList />,
+        },
+
         {
           path: "/movie/:movieId",
           element: <MovieDetail />,
@@ -32,6 +39,7 @@ export default function Router() {
           path: "/register",
           element: <Register />,
         },
+
         {
           path: "/",
           element: <AuthGuard />,
@@ -42,6 +50,7 @@ export default function Router() {
             },
           ],
         },
+
         {
           path: "/",
           element: <NoAuthGuard />,

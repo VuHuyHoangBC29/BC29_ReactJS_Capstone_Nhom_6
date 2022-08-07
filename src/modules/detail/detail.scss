@@ -1,0 +1,27 @@
+#detail {
+  button {
+    border: 1px solid #b61883;
+    padding: 0.2rem 2rem;
+    color: white;
+    background: white;
+    border-radius: 2rem;
+    transition: 0.3s;
+    box-shadow: 0 0 0 3em #b61883 inset;
+
+    &:hover {
+      box-shadow: 0 0 0 1px #b61883 inset;
+      color: #b61883;
+    }
+  }
+  .modal-content {
+    background-color: transparent !important;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content iframe {
+    border-radius: 10px;
+  }
+}
