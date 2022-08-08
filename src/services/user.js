@@ -18,7 +18,7 @@ export const registerUserApi = (data) => {
 
 export const fetchUserListApi = () => {
   return request({
-    url: `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`,
+    url: `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP02`,
     method: "GET",
   });
 };
@@ -28,5 +28,42 @@ export const addUserApi = (data) => {
     url: `/QuanLyNguoiDung/ThemNguoiDung`,
     method: "POST",
     data,
+  });
+};
+
+export const deleteUserApi = (taiKhoan) => {
+  return request({
+    url: `/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
+    method: "DELETE",
+  });
+};
+
+export const editUserByAdminApi = (data) => {
+  return request({
+    url: `/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+    method: "POST",
+    data,
+  });
+};
+
+export const editUserByUserApi = (data) => {
+  return request({
+    url: `/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+    method: "PUT",
+    data,
+  });
+};
+
+export const fetchUserInfoApi = (taiKhoan) => {
+  return request({
+    url: `/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`,
+    method: "POST",
+  });
+};
+
+export const fetchAccountInfoApi = () => {
+  return request({
+    url: `//QuanLyNguoiDung/ThongTinTaiKhoan`,
+    method: "POST",
   });
 };

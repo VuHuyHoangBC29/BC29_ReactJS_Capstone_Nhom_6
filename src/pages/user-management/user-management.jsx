@@ -1,10 +1,30 @@
 import React, { useRef, useState } from "react";
 import { useEffect } from "react";
-import { addUserApi, fetchUserListApi } from "../../services/user";
+import {
+  addUserApi,
+  deleteUserApi,
+  fetchAccountInfoApi,
+  fetchUserInfoApi,
+  fetchUserListApi,
+} from "../../services/user";
 import { Button, Modal, notification } from "antd";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function UserManagement() {
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   const navigate = useNavigate();
 
   const formRef = useRef();
@@ -29,6 +49,17 @@ export default function UserManagement() {
       hoTen: "",
     },
   });
+
+  const [userList, setUserList] = useState();
+
+  useEffect(() => {
+    fetchUserList();
+  }, []);
+
+  const fetchUserList = async () => {
+    const result = await fetchUserListApi();
+    setUserList(result.data.content);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -90,30 +121,37 @@ export default function UserManagement() {
     console.log(state.values);
   };
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
+  const deleteUser = async (taiKhoan) => {
+    try {
+      await deleteUserApi(taiKhoan);
+      notification.success({ message: "Xóa người dùng thành công!" });
+      navigate("/admin");
+    } catch (errors) {
+      console.log(errors.response);
+      notification.warning({ message: errors.response.data.content });
+    }
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+  const userInfo = async (taiKhoan) => {
+    const result = await fetchUserInfoApi(taiKhoan);
+    console.log(result);
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const [selectedUser, setSelectedUser] = useState({});
+
+  console.log(selectedUser);
+
+  const handleSelectedUser = (user) => {
+    setSelectedUser({
+      user,
+    });
+    console.log(selectedUser);
   };
 
-  const [userList, setUserList] = useState();
-
-  useEffect(() => {
-    fetchUserList();
-  }, []);
-
-  const fetchUserList = async () => {
-    const result = await fetchUserListApi();
-    setUserList(result.data.content);
-  };
+  // const accountInfo = async () => {
+  //   const result = await fetchAccountInfoApi();
+  //   console.log(result);
+  // };
 
   const renderContent = () => {
     return userList?.map((ele) => {
@@ -125,10 +163,16 @@ export default function UserManagement() {
           <td>{ele.soDT}</td>
           <td>{ele.maLoaiNguoiDung}</td>
           <td>
-            <button className="btn btn-warning mr-1">
+            <button
+              onClick={() => handleSelectedUser(ele)}
+              className="btn btn-warning mr-1"
+            >
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
-            <button className="btn btn-danger">
+            <button
+              onClick={() => deleteUser(ele.taiKhoan)}
+              className="btn btn-danger"
+            >
               <i className="fa-solid fa-trash"></i>
             </button>
           </td>
@@ -142,7 +186,7 @@ export default function UserManagement() {
       <Button type="primary" onClick={showModal}>
         Thêm người dùng
       </Button>
-      <table className="table table-bordered">
+      <table className="table table-bordered mt-3">
         <thead>
           <tr style={{ color: "#007bff", fontSize: 20 }}>
             <th>Tài khoản</th>

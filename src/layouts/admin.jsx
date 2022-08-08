@@ -81,9 +81,11 @@ export default function AdminLayout() {
           style={{
             paddingRight: "10px",
             color: "white",
+            fontSize: "30px",
+            fontWeight: "bold",
           }}
         >
-          Admin Interface
+          Cinema Management
         </Header>
         <Content
           style={{
