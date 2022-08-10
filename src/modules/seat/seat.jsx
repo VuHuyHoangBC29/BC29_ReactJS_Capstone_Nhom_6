@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { LoaiGhe } from "../../enums/common";
 
 import "./seat.scss";
 
@@ -9,7 +10,7 @@ export default function Seat(props) {
   const populateClass = () => {
     let defaultClass = "ghe";
 
-    if (props.item.loaiGhe === "Vip") {
+    if (props.item.loaiGhe === LoaiGhe.Vip) {
       defaultClass += " gheVip";
     }
 

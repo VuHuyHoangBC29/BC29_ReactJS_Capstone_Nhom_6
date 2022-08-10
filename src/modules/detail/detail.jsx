@@ -5,22 +5,29 @@ import { useParams } from "react-router-dom";
 import { fetchMovieDetailApi } from "../../services/movie";
 import moment from "moment";
 import "./detail.scss";
+import { formatDate } from "../../utils/common";
+import { useAsync } from "hook/useAsync";
 
 export default function Detail() {
   const params = useParams();
-  const [movieDetail, setMovieDetail] = useState({});
+  // const [movieDetail, setMovieDetail] = useState({});
 
-  useEffect(() => {
-    fetchMovieDetail();
-  }, []);
+  const { state: movieDetail = {} } = useAsync({
+    dependencies: [],
+    service: () => fetchMovieDetailApi(params.movieId),
+  });
 
-  const fetchMovieDetail = async () => {
-    const result = await fetchMovieDetailApi(params.movieId);
+  // useEffect(() => {
+  //   fetchMovieDetail();
+  // }, []);
 
-    setMovieDetail(result.data.content);
+  // const fetchMovieDetail = async () => {
+  //   const result = await fetchMovieDetailApi(params.movieId);
 
-    console.log(result.data.content);
-  };
+  //   setMovieDetail(result.data.content);
+
+  //   console.log(result.data.content);
+  // };
 
   return (
     <div id="detail" className="row">
@@ -30,13 +37,16 @@ export default function Detail() {
       <div className="col-9">
         <h4>{movieDetail.tenPhim}</h4>
         <p>{movieDetail.moTa}</p>
-        <p> Premiere: {moment(movieDetail.ngayKhoiChieu).format("LL")}</p>
+        <p>
+          {" "}
+          Premiere:{" "}
+          <span style={{ color: "#b61883", fontWeight: "bold" }}>
+            {" "}
+            {formatDate(movieDetail.ngayKhoiChieu, "LLL")}
+          </span>
+        </p>
         <div>
-          <button
-            type="button"
-            data-toggle="modal"
-            data-target="#trailer"
-          >
+          <button type="button" data-toggle="modal" data-target="#trailer">
             TRAILER
           </button>
         </div>

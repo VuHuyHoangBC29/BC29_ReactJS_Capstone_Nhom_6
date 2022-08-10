@@ -1,3 +1,4 @@
+import { GROUP_ID } from "constants/common";
 import { request } from "../config/axios";
 
 export const loginApi = (data) => {
@@ -18,7 +19,7 @@ export const registerUserApi = (data) => {
 
 export const fetchUserListApi = () => {
   return request({
-    url: `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP02`,
+    url: `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP_ID}`,
     method: "GET",
   });
 };

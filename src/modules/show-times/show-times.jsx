@@ -6,6 +6,8 @@ import { fetchMovieShowTimesApi } from "../../services/cinema";
 import moment from "moment";
 import "./show-times.scss";
 import { Tabs } from "antd";
+import { formatDate } from "../../utils/common";
+import { useAsync } from "hook/useAsync";
 
 export default function ShowTimes() {
   const { TabPane } = Tabs;
@@ -14,19 +16,24 @@ export default function ShowTimes() {
 
   const params = useParams();
 
-  const [showTimes, setShowTimes] = useState({});
+  // const [showTimes, setShowTimes] = useState({});
 
-  useEffect(() => {
-    fetchMovieShowTimes();
-  }, []);
+  const { state: showTimes = {} } = useAsync({
+    dependencies: [],
+    service: () => fetchMovieShowTimesApi(params.movieId),
+  });
 
-  const fetchMovieShowTimes = async () => {
-    const result = await fetchMovieShowTimesApi(params.movieId);
+  // useEffect(() => {
+  //   fetchMovieShowTimes();
+  // }, []);
 
-    setShowTimes(result.data.content);
+  // const fetchMovieShowTimes = async () => {
+  //   const result = await fetchMovieShowTimesApi(params.movieId);
 
-    console.log(result.data.content);
-  };
+  //   setShowTimes(result.data.content);
+
+  //   console.log(result.data.content);
+  // };
 
   const renderTabs = () => {
     return showTimes?.heThongRapChieu?.map((ele, idx) => {
@@ -76,7 +83,7 @@ export default function ShowTimes() {
                             <span
                               style={{ color: "#b61883", fontWeight: "bold" }}
                             >
-                              {moment(ele.ngayChieuGioChieu).format("LLLL")}
+                              {formatDate(ele.ngayChieuGioChieu)}
                             </span>
                           </p>
                           <Link

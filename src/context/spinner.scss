@@ -1,0 +1,25 @@
+.loader-2 .loader-star {
+  position: static;
+  width: 60px;
+  height: 60px;
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-animation: loader-2-star 1s ease alternate infinite;
+  animation: loader-2-star 1s ease alternate infinite;
+}
+
+.loader-2 .loader-circles {
+  width: 8px;
+  height: 8px;
+  background: #18ffff;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 4px);
+  top: calc(50% - 4px);
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-animation: loader-2-circles 1s ease-in-out alternate infinite;
+  animation: loader-2-circles 1s ease-in-out alternate infinite;
+}

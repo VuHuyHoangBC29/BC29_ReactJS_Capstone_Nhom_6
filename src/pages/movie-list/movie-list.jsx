@@ -1,3 +1,4 @@
+import { useAsync } from "hook/useAsync";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -7,19 +8,24 @@ import { fetchMovieListApi } from "../../services/movie";
 export default function MovieList() {
   const navigate = useNavigate();
 
-  const [movieList, setMovieList] = useState([]);
+  // const [movieList, setMovieList] = useState([]);
 
-  useEffect(() => {
-    fetchMovieList();
-  }, []);
+  const { state: movieList = [] } = useAsync({
+    dependecies: [],
+    service: () => fetchMovieListApi(),
+  });
 
-  const fetchMovieList = async () => {
-    const result = await fetchMovieListApi();
+  // useEffect(() => {
+  //   fetchMovieList();
+  // }, []);
 
-    console.log(result);
+  // const fetchMovieList = async () => {
+  //   const result = await fetchMovieListApi();
 
-    setMovieList(result.data.content);
-  };
+  //   console.log(result);
+
+  //   setMovieList(result.data.content);
+  // };
 
   const renderMovieList = () => {
     return movieList.map((ele) => {
