@@ -85,7 +85,7 @@ export default function AdminLayout() {
             fontWeight: "bold",
           }}
         >
-          Cinema Management
+          Cyber Cinema Management
         </Header>
         <Content
           style={{
@@ -107,7 +107,7 @@ export default function AdminLayout() {
             textAlign: "center",
           }}
         >
-          Ant Design ©2018 Created by Ant UED
+          @VuHuyHoang_BC29_CAPSTONE_ReactJS
         </Footer>
       </Layout>
     </Layout>

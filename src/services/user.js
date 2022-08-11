@@ -24,6 +24,13 @@ export const fetchUserListApi = () => {
   });
 };
 
+export const fetchUserTypeApi = () => {
+  return request({
+    url: `/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung`,
+    method: "GET",
+  });
+};
+
 export const addUserApi = (data) => {
   return request({
     url: `/QuanLyNguoiDung/ThemNguoiDung`,
@@ -64,7 +71,7 @@ export const fetchUserInfoApi = (taiKhoan) => {
 
 export const fetchAccountInfoApi = () => {
   return request({
-    url: `//QuanLyNguoiDung/ThongTinTaiKhoan`,
+    url: `/QuanLyNguoiDung/ThongTinTaiKhoan`,
     method: "POST",
   });
 };

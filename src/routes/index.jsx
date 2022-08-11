@@ -1,5 +1,6 @@
 import UserForm from "modules/user-form/user-form";
 import CreateUser from "pages/create-user/create-user";
+import ProfileInfo from "pages/profile-info/profile-info";
 import UpdateMovie from "pages/update-movie/update-movie";
 import UpdateUser from "pages/update-user/update-user";
 import React, { lazy } from "react";
@@ -59,17 +60,16 @@ export default function Router() {
         },
 
         {
-          path: "/register",
-          element: <Register />,
-        },
-
-        {
           path: "/",
           element: <AuthGuard />,
           children: [
             {
               path: "/booking/:showTimesId",
               element: <Booking />,
+            },
+            {
+              path: "/profile-info/:taiKhoan",
+              element: <ProfileInfo />,
             },
           ],
         },
@@ -81,6 +81,10 @@ export default function Router() {
             {
               path: "/login",
               element: <Login />,
+            },
+            {
+              path: "/register",
+              element: <Register />,
             },
           ],
         },

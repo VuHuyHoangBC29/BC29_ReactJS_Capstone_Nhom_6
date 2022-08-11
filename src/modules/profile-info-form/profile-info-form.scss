@@ -1,0 +1,19 @@
+#profileInfoForm {
+  #btnUpdateProfile {
+    text-decoration: none;
+    border: 1px solid #b61883;
+    padding: 0.2rem 2rem;
+    background: white;
+    color: white;
+    font-weight: bold;
+    border-radius: 2rem;
+    transition: 0.3s;
+    box-shadow: 0 0 0 3em #b61883 inset;
+
+    &:hover {
+      box-shadow: 0 0 0 1px #b61883 inset;
+
+      color: #b61883;
+    }
+  }
+}
