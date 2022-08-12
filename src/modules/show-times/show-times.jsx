@@ -23,6 +23,7 @@ export default function ShowTimes() {
     service: () => fetchMovieShowTimesApi(params.movieId),
   });
 
+  console.log(showTimes);
   // useEffect(() => {
   //   fetchMovieShowTimes();
   // }, []);
