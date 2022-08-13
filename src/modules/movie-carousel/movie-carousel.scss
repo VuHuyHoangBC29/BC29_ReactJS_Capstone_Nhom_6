@@ -9,7 +9,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0.555);
+    background: rgba(0, 0, 0, 0.836);
     z-index: 1;
   }
 
@@ -27,71 +27,107 @@
     //   opacity: 0.4;
     // }
 
+    // .ant-carousel {
+    //   .slick-dots li.slick-active button {
+    //     opacity: 1;
+    //     background: #b61883;
+    //   }
+
+    //   .slick-prev {
+    //     left: -30px;
+    //   }
+
+    //   .slick-prev:before,
+    //   .slick-next:before {
+    //     font-family: FontAwesome;
+    //     font-size: 30px;
+    //     // border-radius: 50%;
+    //     line-height: 1;
+    //     color: #b61883;
+    //     opacity: 1;
+    //     -webkit-font-smoothing: antialiased;
+    //     -moz-osx-font-smoothing: grayscale;
+    //     background-color: white;
+    //   }
+
+    //   .slick-prev:before {
+    //     content: "\f359";
+    //   }
+    //   .slick-next:before {
+    //     content: "\f35a";
+    //   }
+    // }
     .ant-carousel {
       .slick-dots li.slick-active button {
         opacity: 1;
-        background: #b61883;
+        background: #ff4ef6;
       }
 
-      .slick-prev {
-        left: -30px;
-      }
-
-      .slick-prev:before,
-      .slick-next:before {
+      .slick-prev::before,
+      .slick-next::before {
         font-family: FontAwesome;
-        font-size: 30px;
-        // border-radius: 50%;
-        line-height: 1;
+        font-size: 20px;
+        color: white;
+        opacity: 0.75;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      .slick-next:hover::before,
+      .slick-prev:hover::before {
         color: #b61883;
-        opacity: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         background-color: white;
       }
 
-      .slick-prev:before {
-        content: "\f359";
+      .slick-prev::before {
+        content: "\f104";
       }
-      .slick-next:before {
-        content: "\f35a";
+      .slick-next::before {
+        content: "\f105";
       }
     }
 
     .movieItem {
-      .cardBodyOverlay {
-        background-color: #dfdfdfbb;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: all 0.5s;
-
-        .card-body {
+      .card {
+        &:hover {
+          border: 1px solid #b61883;
+        }
+        .cardBodyOverlay {
+          background-color: #dfdfdfbb;
           position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
           left: 0;
-          bottom: 0;
+          opacity: 0;
+          transition: all 0.5s;
 
-          button {
-            border: 1px solid #b61883;
-            padding: 0.2rem 2rem;
-            color: white;
-            background: white;
-            border-radius: 2rem;
-            transition: 0.3s;
-            box-shadow: 0 0 0 3em #b61883 inset;
+          .card-body {
+            position: absolute;
+            left: 0;
+            bottom: 0;
 
-            &:hover {
-              box-shadow: 0 0 0 1px #b61883 inset;
-              color: #b61883;
+            button {
+              border: 1px solid #b61883;
+              padding: 0.2rem 2rem;
+              color: white;
+              background: white;
+              border-radius: 2rem;
+              transition: 0.3s;
+              box-shadow: 0 0 0 3em #b61883 inset;
+
+              &:hover {
+                box-shadow: 0 0 0 1px #b61883 inset;
+                color: #b61883;
+              }
             }
           }
-        }
 
-        &:hover {
-          opacity: 1;
+          &:hover {
+            opacity: 1;
+          }
         }
       }
     }

@@ -220,9 +220,25 @@ export default function Header() {
             </li>
             <li className="nav-item ">
               {!userState.userInfo ? (
-                <>
+                // <>
+                //   <button
+                //     className="btn btn-outline-info my-2 my-sm-0 mr-2"
+                //     type="sumit"
+                //     onClick={() => navigate("/register")}
+                //   >
+                //     Register
+                //   </button>
+                //   <button
+                //     onClick={() => navigate("/login")}
+                //     className="btn btn-outline-success my-2 my-sm-0"
+                //   >
+                //     Login
+                //   </button>
+                // </>
+
+                <li>
                   <button
-                    className="btn btn-outline-info my-2 my-sm-0 mr-2"
+                    className="my-2 my-sm-0 mr-2"
                     type="sumit"
                     onClick={() => navigate("/register")}
                   >
@@ -230,11 +246,11 @@ export default function Header() {
                   </button>
                   <button
                     onClick={() => navigate("/login")}
-                    className="btn btn-outline-success my-2 my-sm-0"
+                    className="my-2 my-sm-0"
                   >
                     Login
                   </button>
-                </>
+                </li>
               ) : (
                 <>
                   <span

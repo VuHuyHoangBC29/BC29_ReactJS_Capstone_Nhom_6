@@ -46,7 +46,7 @@ export default function MovieCarousel() {
       return (
         <div className="movieItem" key={ele.maPhim}>
           <div className="mx-2">
-            <div className="card">
+            <div className="card" style={{ overflow: "hidden" }}>
               <img
                 style={{ height: 400, objectFit: "cover" }}
                 className="card-img-top"
@@ -60,7 +60,7 @@ export default function MovieCarousel() {
                     onClick={() => navigate(`/movie/${ele.maPhim}`)}
                     className="btn"
                   >
-                    XEM CHI TIẾT
+                    Details
                   </button>
 
                   {/* <Button
