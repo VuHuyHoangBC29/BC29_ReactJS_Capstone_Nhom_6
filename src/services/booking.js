@@ -14,3 +14,11 @@ export const bookingTicketApi = (data) => {
     data,
   });
 };
+
+export const addMovieScheduleApi = (data) => {
+  return request({
+    url: `/QuanLyDatVe/TaoLichChieu`,
+    method: "POST",
+    data,
+  });
+};

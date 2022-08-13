@@ -1,32 +1,36 @@
 .header {
-  background-color: transparent;
-  #brand {
-    color: #b61883;
-    font-family: "Pacifico";
-    font-weight: bold;
-    font-size: 40px;
-  }
+  // background: url(../../../public/1858113.jpg) bottom/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../../../public/1858113.jpg) center / cover no-repeat;
+  padding: 0 15rem 0 15rem;
+  // font-family: "Vibur", sans-serif !important;
 
-  .nav-link {
-    color: black;
-    font-size: 17px;
-    font-weight: bolder;
-    transition: all 0.5s;
-    &:hover {
+  nav {
+    justify-content: space-around;
+    font-size: 25px;
+    .nav-link {
       color: #b61883;
+      font-weight: bolder;
+      transition: all 0.5s;
+      &:hover {
+        color: white;
+      }
     }
-  }
-  .active {
-    color: #b61883;
-  }
 
-  .log-out {
-    border: none;
-    color: black;
-    background-color: transparent;
-    transition: all 0.5s;
-    &:hover {
-      color: #b61883;
+    .active {
+      color: #fff;
+      text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
+        0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
+    }
+
+    .log-out {
+      border: none;
+      color: black;
+      background-color: transparent;
+      transition: all 0.5s;
+      &:hover {
+        color: #b61883;
+      }
     }
   }
 }

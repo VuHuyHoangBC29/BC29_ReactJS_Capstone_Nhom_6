@@ -1,3 +1,4 @@
+import Logo from "components/logo/logo";
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/footer/footer";
@@ -6,7 +7,8 @@ import Header from "../components/header/header";
 export default function HomeLayout() {
   return (
     <div>
-      <div className="container-fluid p-0">
+      <div>
+        <Logo />
         <Header />
         <Outlet />
         <Footer />

@@ -1,6 +1,6 @@
-import { Button, notification, Space, Table, Tag } from "antd";
+import { Button, Input, notification, Space, Table, Tag } from "antd";
 import { useAsync } from "hook/useAsync";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { deleteMovieApi, fetchMovieListApi } from "services/movie";
 import { formatDate } from "utils/common";
@@ -8,9 +8,28 @@ import { formatDate } from "utils/common";
 export default function MovieTable() {
   const navigate = useNavigate();
 
-  const { state: data = [] } = useAsync({
+  const [searchState, setSearchState] = useState([]);
+
+  const { Search } = Input;
+
+  const { state: data } = useAsync({
     service: () => fetchMovieListApi(),
   });
+
+  const onSearch = (value) => {
+    // console.log(value);
+    let searchData = data.filter((ele) => {
+      return (
+        ele.tenPhim.toLowerCase().trim().indexOf(value.toLowerCase().trim()) !==
+        -1
+      );
+    });
+    console.log(searchData);
+
+    setSearchState(searchData);
+
+    console.log(searchState);
+  };
 
   const deleteMovie = async (maPhim) => {
     try {
@@ -77,17 +96,36 @@ export default function MovieTable() {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button
-            type="primary"
+          <a
+            title="Update movie"
+            className="text-warning"
+            style={{ fontSize: 20 }}
             onClick={() =>
               navigate(`/admin/movie-management/${record.maPhim}/update-movie`)
             }
           >
             <i className="fa-solid fa-pen-to-square"></i>
-          </Button>
-          <Button type="danger" onClick={() => deleteMovie(record.maPhim)}>
+          </a>
+          <a
+            title="Delete movie"
+            className="text-danger"
+            style={{ fontSize: 20 }}
+            onClick={() => deleteMovie(record.maPhim)}
+          >
             <i className="fa-solid fa-trash"></i>
-          </Button>
+          </a>
+          <a
+            title="Create schedule"
+            className="text-success"
+            style={{ fontSize: 20 }}
+            onClick={() =>
+              navigate(
+                `/admin/movie-management/${record.maPhim}/movie-schedule`
+              )
+            }
+          >
+            <i className="fa-solid fa-calendar-days"></i>
+          </a>
         </Space>
       ),
     },
@@ -95,7 +133,19 @@ export default function MovieTable() {
 
   return (
     <>
-      <div className="text-right mb-3">
+      <div className="d-flex justify-content-between mb-3">
+        <div>
+          <Space direction="vertical">
+            <Search
+              placeholder="Nhập tên phim cần tìm"
+              onSearch={onSearch}
+              enterButton
+              name="keyword"
+              allowClear
+            />
+          </Space>
+        </div>
+
         <Button
           type="primary"
           onClick={() => navigate("/admin/movie-management/create-movie")}
@@ -103,7 +153,11 @@ export default function MovieTable() {
           CREATE MOVIE
         </Button>
       </div>
-      <Table rowKey="maPhim" columns={columns} dataSource={data} />
+      <Table
+        rowKey="maPhim"
+        columns={columns}
+        dataSource={searchState.length > 0 ? searchState : data}
+      />
     </>
   );
 }

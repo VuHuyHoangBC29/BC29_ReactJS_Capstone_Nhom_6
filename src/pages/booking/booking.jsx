@@ -7,25 +7,35 @@ import { bookingTicketApi, fetchCinemaListApi } from "../../services/booking";
 import _ from "lodash";
 
 import "./booking.scss";
+import { useAsync } from "hook/useAsync";
 
 export default function Booking() {
   const [selectedSeatsList, setSelectedSeatsList] = useState([]);
 
   const params = useParams();
 
-  const [cinemaInfo, setCinemaInfo] = useState();
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchCinemaList();
-  }, []);
+  // const [cinemaInfo, setCinemaInfo] = useState();
 
-  const fetchCinemaList = async () => {
-    const result = await fetchCinemaListApi(params.showTimesId);
+  // useEffect(() => {
+  //   fetchCinemaList();
+  // }, []);
 
-    setCinemaInfo(result.data.content);
-  };
+  // const fetchCinemaList = async () => {
+  //   const result = await fetchCinemaListApi(params.showTimesId);
+
+  //   setCinemaInfo(result.data.content);
+  // };
+
+  // console.log(cinemaInfo);
+
+  const { state: cinemaInfo } = useAsync({
+    dependecies: [],
+    service: () => fetchCinemaListApi(params.showTimesId),
+  });
+
+  console.log(cinemaInfo);
 
   const handleSelect = (selectedSeat) => {
     const data = [...selectedSeatsList];
@@ -65,7 +75,7 @@ export default function Booking() {
     }
   };
 
-  return cinemaInfo ? (
+  return (
     <div id="booking" className="container-fluid py-3">
       <div className="row mx-5">
         <div className="bookingRight col-12 col-lg-8 text-center">
@@ -87,7 +97,7 @@ export default function Booking() {
             </div>
           </div>
           <div className="seatMap px-auto">
-            {cinemaInfo.danhSachGhe.map((ele, idx) => {
+            {cinemaInfo?.danhSachGhe?.map((ele, idx) => {
               return (
                 <React.Fragment key={ele.tenGhe}>
                   <Seat handleSelect={handleSelect} item={ele} />
@@ -166,7 +176,7 @@ export default function Booking() {
         <div className="bookingLeft col-12 col-lg-4">
           <img
             className="img-fluid"
-            src={cinemaInfo.thongTinPhim.hinhAnh}
+            src={cinemaInfo?.thongTinPhim.hinhAnh}
             alt="image"
           />
           {/* <h4>
@@ -200,21 +210,21 @@ export default function Booking() {
             <tbody>
               <tr>
                 <th>Tên phim:</th>
-                <th>{cinemaInfo.thongTinPhim.tenPhim}</th>
+                <th>{cinemaInfo?.thongTinPhim.tenPhim}</th>
               </tr>
               <tr>
                 <th>Tên rạp:</th>
-                <th>{cinemaInfo.thongTinPhim.tenCumRap}</th>
+                <th>{cinemaInfo?.thongTinPhim.tenCumRap}</th>
               </tr>
               <tr>
                 <th>Địa chỉ:</th>
-                <th>{cinemaInfo.thongTinPhim.diaChi}</th>
+                <th>{cinemaInfo?.thongTinPhim.diaChi}</th>
               </tr>
               <tr>
                 <th>Thời gian:</th>
                 <th>
-                  {cinemaInfo.thongTinPhim.ngayChieu} -{" "}
-                  <span>{cinemaInfo.thongTinPhim.gioChieu} </span>
+                  {cinemaInfo?.thongTinPhim.ngayChieu} -{" "}
+                  <span>{cinemaInfo?.thongTinPhim.gioChieu} </span>
                 </th>
               </tr>
               <tr>
@@ -258,7 +268,5 @@ export default function Booking() {
         </div>
       </div>
     </div>
-  ) : (
-    "LOADING..."
   );
 }

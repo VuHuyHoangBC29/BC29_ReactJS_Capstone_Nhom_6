@@ -82,17 +82,26 @@ export default function MovieCarousel() {
   };
 
   return (
-    <div id="movieCarousel" className="container py-5">
-      {/* {renderMovieList()} */}
-      <Carousel
-        slidesToShow={4}
-        slidesToScroll={1}
-        arrows
-        dots={false}
-        infinite
-      >
-        {renderMovieList()}
-      </Carousel>
+    <div
+      id="movieCarouselContainer"
+      style={{ height: "80vh" }}
+      className="d-flex align-items-center"
+    >
+      <div id="videoOverlay"></div>
+      <video src="./videoplayback.mp4" autoPlay loop muted></video>
+
+      <div id="movieCarousel" className="container py-5">
+        <Carousel
+          slidesToShow={4}
+          slidesToScroll={1}
+          arrows
+          dots={false}
+          infinite
+          style={{ zIndex: "2" }}
+        >
+          {renderMovieList()}
+        </Carousel>
+      </div>
     </div>
   );
 }

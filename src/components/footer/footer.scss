@@ -1,9 +1,27 @@
 #footer {
-  background-color: rgb(216, 216, 216);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../../../public/1858113.jpg) center / cover no-repeat;
   position: relative;
-  h4 {
-    font-size: 20px;
+
+  .navbar-brand {
     color: #b61883;
+    font-size: 50px;
+    font-weight: bold;
+    transition: 0.6s;
+
+    &:hover {
+      color: #fff;
+      text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
+        0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
+
+      // color: red;
+    }
+  }
+
+  h3 {
+    // font-size: 20px;
+    color: white;
+    font-weight: bolder;
   }
   .about {
     &::after {
@@ -28,7 +46,8 @@
 
       a {
         position: relative;
-        color: black;
+        color: #b61883;
+        font-size: 20px;
         text-decoration: none;
         transition: all 0.5s;
         padding-bottom: 2px;
@@ -39,13 +58,18 @@
           width: 0;
           left: 0;
           bottom: 0;
-          background-color: #b61883;
+          // background-color: #b61883;
+          background-color: #fff;
+          text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
+            0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
           position: absolute;
           transition: 0.5s;
         }
 
         &:hover {
-          color: #b61883;
+          color: #fff;
+          text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
+            0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
 
           &::after {
             width: 100%;
@@ -60,7 +84,8 @@
     transition: 0.5s;
 
     &:hover {
-      box-shadow: 0 0 0 3px #b61883;
+      box-shadow: 0 0 0 3px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
+        0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
     }
   }
 }

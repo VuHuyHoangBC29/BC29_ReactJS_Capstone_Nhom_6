@@ -1,5 +1,7 @@
 import UserForm from "modules/user-form/user-form";
+import BookingHistory from "pages/booking-history/booking-history";
 import CreateUser from "pages/create-user/create-user";
+import MovieSchedule from "pages/movie-schedule/movie-schedule";
 import ProfileInfo from "pages/profile-info/profile-info";
 import UpdateMovie from "pages/update-movie/update-movie";
 import UpdateUser from "pages/update-user/update-user";
@@ -71,6 +73,10 @@ export default function Router() {
               path: "/profile-info/:taiKhoan",
               element: <ProfileInfo />,
             },
+            {
+              path: "/booking-history/:taiKhoan",
+              element: <BookingHistory />,
+            },
           ],
         },
 
@@ -127,6 +133,11 @@ export default function Router() {
             {
               path: "/admin/movie-management/:movieId/update-movie",
               element: <UpdateMovie />,
+            },
+
+            {
+              path: "/admin/movie-management/:movieId/movie-schedule",
+              element: <MovieSchedule />,
             },
           ],
         },
