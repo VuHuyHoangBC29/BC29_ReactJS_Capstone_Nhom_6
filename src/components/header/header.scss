@@ -1,8 +1,9 @@
-.header {
+#header {
   // background: url(../../../public/1858113.jpg) bottom/cover no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(../../../public/1858113.jpg) center / cover no-repeat;
   padding: 0 15rem 0 15rem;
+  position: relative;
   // font-family: "Vibur", sans-serif !important;
 
   nav {
@@ -40,7 +41,7 @@
       svg {
         fill: #b61883;
         border-radius: 50%;
-        transition: 0.5s;
+        transition: 0.2s;
 
         &:hover {
           fill: white;

@@ -106,7 +106,7 @@ export default function Header() {
   );
 
   return (
-    <div className="header">
+    <div id="header">
       <nav className="navbar navbar-expand-md row py-4 flex-column">
         {/* <button
           className="navbar-toggler d-lg-none"
