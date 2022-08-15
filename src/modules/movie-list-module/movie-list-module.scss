@@ -1,4 +1,30 @@
 #movie-list {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(../../../public/1858113.jpg) center repeat;
+
+  .movie-card {
+    border: 3px solid transparent;
+    transition: 0.5s;
+
+    &:hover {
+      border: 3px solid white;
+      box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f09,
+        0 0 25px #f09, 0 0 30px #f09, 0 0 35px #f09, 0 0 40px #f09;
+    }
+  }
+
+  button {
+    border: 1px solid #b61883;
+    padding: 0.2rem 2rem;
+    color: white;
+    background: white;
+    border-radius: 2rem;
+    transition: 0.3s;
+    box-shadow: 0 0 0 3em #b61883 inset;
+
+    &:hover {
+      box-shadow: 0 0 0 1px #b61883 inset;
+      color: #b61883;
+    }
+  }
 }

@@ -345,7 +345,7 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="mx-5 nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/cinema">
                 <i
                   style={{ fontSize: "60px" }}
                   className="fa-solid fa-ticket"

@@ -1,7 +1,8 @@
 body {
   margin: 0;
   /* font-family: "Yellowtail", sans-serif !important; */
-  font-family: "Vibur", sans-serif !important;
+  /* font-family: "Vibur", sans-serif !important; */
+  font-family: 'Acme', sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

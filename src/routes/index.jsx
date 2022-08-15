@@ -1,5 +1,6 @@
 import UserForm from "modules/user-form/user-form";
 import BookingHistory from "pages/booking-history/booking-history";
+import Cinema from "pages/cinema/cinema";
 import CreateUser from "pages/create-user/create-user";
 import MovieSchedule from "pages/movie-schedule/movie-schedule";
 import ProfileInfo from "pages/profile-info/profile-info";
@@ -49,6 +50,11 @@ export default function Router() {
         {
           path: "/",
           element: <Home />,
+        },
+
+        {
+          path: "/cinema",
+          element: <Cinema />,
         },
 
         {

@@ -32,13 +32,13 @@ export default function MovieListModule() {
   const renderMovieList = () => {
     return movieList.map((ele) => {
       return (
-        <div className="col-3" key={ele.maPhim}>
+        <div className="col-4" key={ele.maPhim}>
           <div
             className="card movie-card"
-            style={{ marginBottom: 20, height: 600 }}
+            style={{ marginBottom: 30, height: 600 }}
           >
             <img
-              style={{ height: 500, objectFit: "cover" }}
+              style={{ height: 500, objectFit: "cover", overflow: "hidden" }}
               className="card-img-top"
               src={ele.hinhAnh}
               alt="movie"
