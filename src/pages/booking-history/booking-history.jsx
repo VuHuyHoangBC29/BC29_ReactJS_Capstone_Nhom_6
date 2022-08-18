@@ -5,6 +5,8 @@ import React, { Fragment } from "react";
 import { formatDate } from "utils/common";
 import _ from "lodash";
 
+import "./booking-history.scss";
+
 export default function BookingHistory() {
   const { state: userInfo } = useAsync({
     dependencies: [],
@@ -98,8 +100,8 @@ export default function BookingHistory() {
   };
 
   return (
-    <div>
-      <div className="w-75 my-5 mx-auto">
+    <div id="bookingHistory">
+      <div className="w-75 py-5 mx-auto bookingHistoryContent">
         <h1
           className="mb-4"
           style={{ fontFamily: "Pacifico", color: "#b61883" }}

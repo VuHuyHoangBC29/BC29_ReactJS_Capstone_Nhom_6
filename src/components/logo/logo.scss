@@ -15,6 +15,23 @@
     font-size: 100px;
     color: #fff;
     animation: pulsate 2.5s infinite alternate, flicker 6s infinite alternate;
+
+    @media screen and (max-width: 991px) {
+      font-size: 80px;
+      top: 200px;
+      left: 100px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 70px;
+      top: 150px;
+      left: 50px;
+    }
+
+    @media screen and (max-width: 575px) {
+      left: 30px;
+      font-size: 60px;
+    }
   }
 
   #icon2 {
@@ -25,6 +42,23 @@
     color: #fff;
     transform: rotate(15deg);
     animation: pulsate 2.5s infinite alternate, flicker 8s infinite alternate;
+
+    @media screen and (max-width: 991px) {
+      font-size: 80px;
+      top: 200px;
+      right: 100px;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 70px;
+      top: 150px;
+      right: 50px;
+    }
+
+    @media screen and (max-width: 575px) {
+      right: 30px;
+      font-size: 60px;
+    }
   }
 }
 
@@ -43,8 +77,16 @@
     0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
   font-weight: 400;
   font-size: 6.5rem;
-  animation: subtleFlicker 0.11s ease-in-out infinite alternate;   
+  animation: subtleFlicker 0.11s ease-in-out infinite alternate;
   z-index: 1;
+
+  @media screen and (max-width: 767px) {
+    font-size: 5rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 4rem;
+  }
 }
 
 /* Pulsating animation */

@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div id="footer" className="container-fluid">
       <div className="py-5 px-5 row">
-        <div className="col-12 col-md-6 col-lg-3 mt-2">
+        <div className="col-12 col-md-4 col-lg-4 col-xl-3 mt-2">
           <NavLink className="navbar-brand mx-auto" to="/">
             Cyber <br /> Cinema
           </NavLink>
@@ -30,7 +30,7 @@ export default function Footer() {
             thị trường. */}
           </p>
         </div>
-        <div className="col-12 col-md-6 col-lg-3 mt-3">
+        <div className="col-12 col-md-4 col-lg-4 col-xl-3 mt-3">
           <h3 className="mb-4 about">About us</h3>
           <ul style={{ width: "50%" }}>
             <li>
@@ -50,7 +50,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="col-12 col-md-6 col-lg-3 mt-3">
+        <div className="col-12 col-md-4 col-lg-4 col-xl-3 mt-3">
           <h3 className="mb-4 support">Supports</h3>
           <ul style={{ width: "50%" }}>
             <li>
@@ -70,7 +70,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="col-12 col-md-6 col-lg-3 mt-3">
+        <div className="col-12 col-md-12 col-lg-12 col-xl-3 mt-3">
           <h3 className="mb-4 partner">Partners</h3>
           <div className="footer-img row">
             <div className="col">

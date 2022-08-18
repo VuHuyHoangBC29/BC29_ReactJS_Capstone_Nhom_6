@@ -1,15 +1,16 @@
 #movieCarouselContainer {
   position: relative;
-  border-top: 1.5px solid;
-  border-bottom: 1.5px solid;
-  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f09,
-    0 0 25px #f09, 0 0 30px #f09, 0 0 35px #f09, 0 0 40px #f09;
+  // border-top: 1.5px solid;
+  // border-bottom: 1.5px solid;
+  // box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f09,
+  //   0 0 25px #f09, 0 0 30px #f09, 0 0 35px #f09, 0 0 40px #f09;
+  font-family: "Acme", sans-serif;
 
   #videoOverlay {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, 0.836);
+    background: rgba(0, 0, 0, 0.534);
     z-index: 1;
   }
 
@@ -26,6 +27,10 @@
       .slick-dots li.slick-active button {
         opacity: 1;
         background: #ff4ef6;
+      }
+
+      .slick-prev {
+        left: -35px !important;
       }
 
       .slick-prev::before,
@@ -56,9 +61,23 @@
 
     .movieItem {
       .card {
+        img {
+          height: 450px;
+          object-fit: cover;
+
+          @media screen and (max-width: 767px) {
+            height: 350px;
+          }
+
+          @media screen and (max-width: 575px) {
+            height: 300px;
+          }
+        }
+
         &:hover {
           border: 1px solid #b61883;
         }
+
         .cardBodyOverlay {
           background-color: #dfdfdfbb;
           position: absolute;

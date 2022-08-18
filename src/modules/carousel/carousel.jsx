@@ -1,7 +1,9 @@
-import { Carousel} from "antd";
+import { Carousel } from "antd";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { fetchBannerListApi } from "../../services/movie";
+
+import "./carousel.scss";
 
 export default function Carousels() {
   let [bannerList, setBannerList] = useState([]);
@@ -24,15 +26,15 @@ export default function Carousels() {
     return bannerList?.map((ele, idx) => {
       return (
         <div className={`carousel-item ${idx === 0 && "active"}`} key={idx}>
-          <img
-            src={ele.hinhAnh}
-            alt={ele.maBanner}
-            style={{ width: "100%", height: "100vh" }}
-          />
+          <img src={ele.hinhAnh} alt={ele.maBanner} />
         </div>
       );
     });
   };
 
-  return <Carousel>{renderBanner()}</Carousel>;
+  return (
+    <div id="carousel">
+      <Carousel>{renderBanner()}</Carousel>
+    </div>
+  );
 }

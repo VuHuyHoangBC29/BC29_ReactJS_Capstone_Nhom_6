@@ -48,7 +48,7 @@ export default function MovieCarousel() {
           <div className="mx-2">
             <div className="card" style={{ overflow: "hidden" }}>
               <img
-                style={{ height: 400, objectFit: "cover" }}
+                // style={{ height: 450, objectFit: "cover" }}
                 className="card-img-top"
                 src={ele.hinhAnh}
                 alt="movie"
@@ -62,16 +62,6 @@ export default function MovieCarousel() {
                   >
                     Details
                   </button>
-
-                  {/* <Button
-                    type="primary"
-                    danger
-                    size="medium"
-                    style={{ fontWeight: "bold" }}
-                    onClick={() => navigate(`/movie/${ele.maPhim}`)}
-                  >
-                    XEM CHI TIẾT
-                  </Button> */}
                 </div>
               </div>
             </div>
@@ -92,12 +82,28 @@ export default function MovieCarousel() {
 
       <div id="movieCarousel" className="container py-5">
         <Carousel
-          slidesToShow={4}
+          slidesToShow={3}
           slidesToScroll={1}
           arrows
           dots={false}
           infinite
           style={{ zIndex: "2" }}
+          responsive={[
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1008,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ]}
         >
           {renderMovieList()}
         </Carousel>

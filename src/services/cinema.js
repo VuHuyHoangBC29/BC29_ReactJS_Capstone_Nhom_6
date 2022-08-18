@@ -1,4 +1,4 @@
-import { maHeThongRap } from "constants/common";
+import { GROUP_ID, maHeThongRap } from "constants/common";
 import { request } from "../config/axios";
 
 export const fetchMovieShowTimesApi = (movieId) => {
@@ -18,6 +18,13 @@ export const fetchCinemaSytemApi = (maHeThongRap) => {
 export const fetchCinamaGroupBySytemApi = (maHeThongRap) => {
   return request({
     url: `/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`,
+    method: "GET",
+  });
+};
+
+export const fetchShowTimesByCinemaSystem = (maHeThongRap, GROUP_ID) => {
+  return request({
+    url: `QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=${GROUP_ID}`,
     method: "GET",
   });
 };
