@@ -1,0 +1,50 @@
+#register {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../../../public/1858113.jpg) center;
+
+  //   font-family: "Acme", sans-serif;
+
+  .card-header {
+    color: white;
+    background: #b61883;
+  }
+
+  .card-body {
+    input {
+      &:focus {
+        box-shadow: 0 0 10px #f09, 0 0 15px #f09, 0 0 20px #f09;
+      }
+    }
+
+    #btnRegister {
+      font-size: 15px;
+      text-decoration: none;
+      border: 1px solid #b61883;
+      padding: 0.2rem 2rem;
+      background: white;
+      color: white;
+      font-weight: bold;
+      border-radius: 2rem;
+      transition: 0.3s;
+      box-shadow: 0 0 0 3em #b61883 inset;
+
+      &:hover {
+        box-shadow: 0 0 0 1px #b61883 inset;
+
+        color: #b61883;
+      }
+    }
+
+    #btnReset {
+      @extend #btnRegister;
+      background: #b61883;
+      color: #b61883;
+      box-shadow: 0 0 0 3em white inset;
+
+      &:hover {
+        box-shadow: 0 0 0 0 white inset;
+        color: white;
+      }
+    }
+  }
+}
