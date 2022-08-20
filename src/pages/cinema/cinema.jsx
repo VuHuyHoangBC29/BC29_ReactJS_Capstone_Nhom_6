@@ -6,7 +6,7 @@ export default function Cinema() {
   return (
     <div>
       <CinemaModule />
-      <CinemeModule2 />
+      {/* <CinemeModule2 /> */}
     </div>
   );
 }

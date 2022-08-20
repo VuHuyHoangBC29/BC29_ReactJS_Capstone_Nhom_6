@@ -54,7 +54,7 @@
         0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
 
       svg {
-        fill: white;
+        fill: white !important;
         box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09,
           0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
       }
@@ -89,7 +89,7 @@
         #cinemaList {
           i {
             font-size: 60px;
-            
+
             @media screen and (max-width: 767px) {
               font-size: 40px;
             }

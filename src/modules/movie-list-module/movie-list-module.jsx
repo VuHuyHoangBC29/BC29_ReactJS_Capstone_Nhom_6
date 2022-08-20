@@ -10,29 +10,15 @@ import "./movie-list-module.scss";
 export default function MovieListModule() {
   const navigate = useNavigate();
 
-  // const [movieList, setMovieList] = useState([]);
-
   const { state: movieList = [] } = useAsync({
     dependecies: [],
     service: () => fetchMovieListApi(),
   });
 
-  // useEffect(() => {
-  //   fetchMovieList();
-  // }, []);
-
-  // const fetchMovieList = async () => {
-  //   const result = await fetchMovieListApi();
-
-  //   console.log(result);
-
-  //   setMovieList(result.data.content);
-  // };
-
   const renderMovieList = () => {
     return movieList.map((ele) => {
       return (
-        <div className="col-4" key={ele.maPhim}>
+        <div className="col-12 col-md-6 col-lg-4" key={ele.maPhim}>
           <div
             className="card movie-card"
             style={{ marginBottom: 30, height: 600 }}

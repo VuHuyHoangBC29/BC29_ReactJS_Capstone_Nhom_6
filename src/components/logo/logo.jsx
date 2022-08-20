@@ -13,10 +13,10 @@ export default function Logo() {
         </div>
       </div> */}
       <div id="icon1">
-        <i class="fas fa-theater-masks"></i>
+        <i className="fas fa-theater-masks"></i>
       </div>
       <div id="icon2">
-        <i class="fas fa-film"></i>
+        <i className="fas fa-film"></i>
       </div>
       <div
         id="neonLogo"
