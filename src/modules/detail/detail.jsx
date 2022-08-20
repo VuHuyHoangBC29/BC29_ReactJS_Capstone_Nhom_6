@@ -34,8 +34,8 @@ export default function Detail() {
       <div className="col-3">
         <img className="w-100" src={movieDetail.hinhAnh} />
       </div>
-      <div className="col-9">
-        <h4>{movieDetail.tenPhim}</h4>
+      <div className="col-9 text-light">
+        <h4 className="text-light">{movieDetail.tenPhim}</h4>
         <p>{movieDetail.moTa}</p>
         <p>
           {" "}

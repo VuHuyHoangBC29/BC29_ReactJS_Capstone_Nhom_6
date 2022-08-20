@@ -78,7 +78,7 @@ export default function Booking() {
   return (
     <div id="booking" className="container-fluid py-3">
       <div className="row mx-5">
-        <div className="bookingRight col-12 col-lg-8 text-center">
+        <div className="bookingRight col-12 col-xl-8 text-center">
           <div id="screenPosition">
             <div className="screen mt-3 mx-auto text-dark">
               <p
@@ -107,7 +107,7 @@ export default function Booking() {
             })}
           </div>
 
-          <div className="seatTypeChart row mt-5">
+          <div className="seatTypeChart row mt-5 text-light">
             <div className="col d-flex justify-content-center align-items-center">
               <div
                 style={{
@@ -173,7 +173,7 @@ export default function Booking() {
             </div>
           </div>
         </div>
-        <div className="bookingLeft col-12 col-lg-4">
+        <div className="bookingLeft col-12 col-xl-4">
           <img
             className="img-fluid"
             src={cinemaInfo?.thongTinPhim.hinhAnh}
@@ -206,7 +206,7 @@ export default function Booking() {
             })}
           </p> */}
 
-          <table className="table table-bordered mt-3">
+          <table className="table table-bordered mt-3  text-light">
             <tbody>
               <tr>
                 <th>Tên phim:</th>

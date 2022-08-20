@@ -6,13 +6,25 @@
     }
   }
 
-  #tenCumRap {
-    background-color: #b61883;
-    color: white;
-    font-weight: bodler;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
+  #thongTinCumRap {
+    h5 {
+      background-color: #b61883;
+      color: white;
+      font-weight: bodler;
+      display: inline-block;
+      padding: 10px;
+      border-radius: 5px;
+
+      @media screen and (max-width: 575px) {
+        font-size: 15px;
+      }
+    }
+
+    p {
+      @media screen and (max-width: 575px) {
+        font-size: 15px;
+      }
+    }
   }
 
   .btnDatVe {
@@ -29,6 +41,13 @@
       box-shadow: 0 0 0 1px #b61883 inset;
 
       color: #b61883;
+    }
+  }
+
+  img {
+    @media screen and (max-width: 575px) {
+      width: 35px;
+      height: 35px;
     }
   }
 }

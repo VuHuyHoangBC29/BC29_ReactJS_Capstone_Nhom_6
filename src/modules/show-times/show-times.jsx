@@ -46,6 +46,7 @@ export default function ShowTimes() {
           role="tab"
           aria-selected="true"
           key={ele.maHeThongRap}
+          style={{ background: "transparent" }}
         >
           <img src={ele.logo} alt="image" width={70} height={70} />
         </a>
@@ -65,21 +66,23 @@ export default function ShowTimes() {
           {ele.cumRapChieu.map((ele) => {
             return (
               <div key={ele.maCumRap} className="row mb-5">
-                <div className="col-lg-3">
+                <div className="col-3 col-lg-4">
                   <img className="img-fluid rounded" src={ele.hinhAnh} />
                 </div>
-                <div className="col-lg-9 pl-0">
-                  <h5 id="tenCumRap" className="m-0">
+                <div id="thongTinCumRap" className="col-9 col-lg-8 pl-0">
+                  <h5 className="m-0">
                     {ele.tenCumRap}
                   </h5>
-                  <p style={{ fontWeight: "bold" }}>Địa chỉ: {ele.diaChi}</p>
+                  <p style={{ fontWeight: "bold", color: "white" }}>
+                    Địa chỉ: {ele.diaChi}
+                  </p>
                 </div>
                 <div className="col-12 mt-3">
                   <div className="row">
                     {ele.lichChieuPhim.map((ele) => {
                       return (
-                        <div key={ele.maLichChieu} className="col-3 mb-3">
-                          <p className="mb-0">
+                        <div key={ele.maLichChieu} className="col-12 col-lg-4 col-xl-3 mb-3">
+                          <p className="mb-0 text-light">
                             Thời gian:{" "}
                             <span
                               style={{ color: "#b61883", fontWeight: "bold" }}
@@ -115,20 +118,6 @@ export default function ShowTimes() {
           role="tablist"
           aria-orientation="vertical"
         >
-          {/* {showTimes?.heThongRapChieu?.map((ele, idx) => {
-            return (
-              <a
-                className="nav-link text-capitalize active"
-                data-toggle="pill"
-                href="#galaxy"
-                role="tab"
-                aria-selected="true"
-                key={ele.maHeThongRap}
-              >
-                {ele.tenHeThongRap}
-              </a>
-            );
-          })} */}
           {renderTabs()}
         </div>
       </div>

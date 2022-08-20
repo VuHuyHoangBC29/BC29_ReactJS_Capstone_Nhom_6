@@ -96,7 +96,7 @@ export default function RegisterModule() {
   };
   return (
     <div id="register">
-      <div className="w-25 mx-auto py-5">
+      <div className="registerContent mx-auto py-5">
         <div className="card p-0">
           <div className="card-header font-weight-bold">Đăng ký thành viên</div>
           <div className="card-body">
@@ -218,7 +218,7 @@ export default function RegisterModule() {
                 </div>
               </div>
               <button
-              id="btnRegister"
+                id="btnRegister"
                 disabled={!formRef.current?.checkValidity()}
                 className="btn btn-success mr-2"
                 type="submit"
@@ -226,7 +226,7 @@ export default function RegisterModule() {
                 Đăng ký
               </button>
               <button
-              id="btnReset"
+                id="btnReset"
                 onClick={() => {
                   setState({
                     values: {

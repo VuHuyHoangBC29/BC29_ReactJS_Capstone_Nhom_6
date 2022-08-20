@@ -11,9 +11,5 @@ import { setUserInfoAction } from "../../store/actions/userAction";
 import "./login.scss";
 
 export default function Login() {
-  return (
-    <div id="loginForm">
-      <LoginForm />
-    </div>
-  );
+  return <LoginForm />;
 }

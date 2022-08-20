@@ -136,16 +136,70 @@ export default function MovieForm() {
           <Radio.Button value="large">Large</Radio.Button>
         </Radio.Group>
       </Form.Item>
-      <Form.Item label="Tên phim" name="tenPhim">
+      <Form.Item
+        label="Tên phim"
+        name="tenPhim"
+        validateTrigger={["onBlur"]}
+        rules={[
+          {
+            required: true,
+            message: "Tên phim không được bỏ trống.",
+          },
+          {
+            pattern:
+              "^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$",
+            message: "Tên phim không đúng định dạng.",
+          },
+        ]}
+      >
         <Input />
       </Form.Item>
-      <Form.Item label="Trailer" name="trailer">
+      <Form.Item
+        label="Trailer"
+        name="trailer"
+        validateTrigger={["onBlur"]}
+        rules={[
+          {
+            required: true,
+            message: "Trailer không được bỏ trống.",
+          },
+          {
+            pattern: "https?://.+",
+            message: "Trailer không đúng định dạng.",
+          },
+        ]}
+      >
         <Input />
       </Form.Item>
-      <Form.Item label="Mô tả" name="moTa">
+      <Form.Item
+        label="Mô tả"
+        name="moTa"
+        validateTrigger={["onBlur"]}
+        rules={[
+          {
+            validator: (rules, value) => {
+              if (value === "") {
+                return Promise.reject("Mô tả không được bỏ trống.");
+              }
+
+              return Promise.resolve();
+            },
+          },
+        ]}
+      >
         <Input />
       </Form.Item>
-      <Form.Item label="Ngày khởi chiếu" name="ngayKhoiChieu">
+      <Form.Item
+        label="Ngày khởi chiếu"
+        name="ngayKhoiChieu"
+        validateTrigger={["onBlur"]}
+        rules={[
+          {
+            required: true,
+            message: "Tên phim không được bỏ trống.",
+          },
+        ]}
+      >
         <DatePicker />
       </Form.Item>
       <Form.Item label="Đang chiếu" valuePropName="checked" name="dangChieu">
@@ -157,7 +211,20 @@ export default function MovieForm() {
       <Form.Item label="Hot" valuePropName="checked" name="hot">
         <Switch />
       </Form.Item>
-      <Form.Item label="Số sao" name="danhGia">
+      <Form.Item
+        label="Số sao"
+        name="danhGia"
+        validateTrigger={["onBlur"]}
+        rules={[
+          { required: true, message: "Vui lòng điền số sao." },
+          { min: 1, message: "Số sao phải lớn hơn 0", type: "number" },
+          {
+            max: 10,
+            message: "Số sao phải không được lớn hơn 10",
+            type: "number",
+          },
+        ]}
+      >
         <InputNumber />
       </Form.Item>
       <Form.Item label="Hình ảnh">

@@ -39,18 +39,26 @@ export default function UserTable() {
   // });
   // console.log(searchData);
 
+  // const deleteUser = async (taiKhoan) => {
+  //   try {
+  //     await deleteUserApi(taiKhoan);
+  //     notification.success({
+  //       message: "Xóa người dùng thành công!",
+  //     });
+  //     navigate("/admin");
+  //   } catch (errors) {
+  //     notification.warning({
+  //       message: errors.response.data.content,
+  //     });
+  //   }
+  // };
+
   const deleteUser = async (taiKhoan) => {
-    try {
-      await deleteUserApi(taiKhoan);
-      notification.success({
-        message: "Xóa người dùng thành công!",
-      });
-      navigate("/admin");
-    } catch (errors) {
-      notification.warning({
-        message: errors.response.data.content,
-      });
-    }
+    await deleteUserApi(taiKhoan);
+    notification.success({
+      message: "Xóa người dùng thành công!",
+    });
+    navigate("/admin");
   };
 
   const columns = [

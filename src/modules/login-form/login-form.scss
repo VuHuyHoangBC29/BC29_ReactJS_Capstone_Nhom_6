@@ -1,10 +1,8 @@
-#register {
+#login {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../../../public/1858113.jpg) center;
+    url(../../../public/1858113.jpg) center / cover no-repeat;
 
-  //   font-family: "Acme", sans-serif;
-
-  .registerContent {
+  .loginContent {
     width: 30%;
     @media screen and (max-width: 991px) {
       width: 40%;
@@ -30,7 +28,7 @@
         }
       }
 
-      #btnRegister {
+      #btnLogin {
         font-size: 15px;
         text-decoration: none;
         border: 1px solid #b61883;
@@ -46,18 +44,6 @@
           box-shadow: 0 0 0 1px #b61883 inset;
 
           color: #b61883;
-        }
-      }
-
-      #btnReset {
-        @extend #btnRegister;
-        background: #b61883;
-        color: #b61883;
-        box-shadow: 0 0 0 3em white inset;
-
-        &:hover {
-          box-shadow: 0 0 0 0 white inset;
-          color: white;
         }
       }
     }
