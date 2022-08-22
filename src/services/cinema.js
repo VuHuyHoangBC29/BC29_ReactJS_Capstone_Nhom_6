@@ -22,9 +22,9 @@ export const fetchCinamaGroupBySytemApi = (maHeThongRap) => {
   });
 };
 
-export const fetchShowTimesByCinemaSystem = (maHeThongRap, GROUP_ID) => {
+export const fetchShowTimesByCinemaSystem = (GROUP_ID) => {
   return request({
-    url: `QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=${GROUP_ID}`,
+    url: `QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUP_ID}`,
     method: "GET",
   });
 };

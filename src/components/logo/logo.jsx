@@ -7,11 +7,6 @@ export default function Logo() {
 
   return (
     <div id="neonLogoBackground" className="d-flex justify-content-center">
-      {/* <div id="neonLogoBackgroundOverlay">
-        <div id="icon1">
-          <i class="fas fa-theater-masks"></i>
-        </div>
-      </div> */}
       <div id="icon1">
         <i className="fas fa-theater-masks"></i>
       </div>
