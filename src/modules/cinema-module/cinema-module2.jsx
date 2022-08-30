@@ -76,7 +76,7 @@ export default function CinemaModule2() {
                                           color: "#b61883",
                                           textDecoration: "none",
                                         }}
-                                        className="col-12 col-xl-4 mb-2 p-0"
+                                        className="col-12 col-lg-6 col-xl-4 mb-2 p-0"
                                         to={`/booking/${lichChieu.maLichChieu}`}
                                       >
                                         {formatDate(
