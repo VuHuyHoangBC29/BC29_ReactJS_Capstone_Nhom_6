@@ -1,5 +1,5 @@
 import "./cinema-module.scss";
-import { Radio, Space, Tabs } from "antd";
+import { Tabs } from "antd";
 import { GROUP_ID } from "constants/common";
 import { useAsync } from "hook/useAsync";
 import React, { useState } from "react";
@@ -40,8 +40,8 @@ export default function CinemaModule2() {
                         alt="image"
                       />
                       <div className="pl-2 text-left">
-                        {cumRap.tenCumRap}
-                        <p className="text-white m-0">
+                        <p>{cumRap.tenCumRap}</p>
+                        <p className="m-0">
                           Địa chỉ:{" "}
                           {cumRap.diaChi.length > 50
                             ? cumRap.diaChi.substring(0, 30) + "..."
@@ -66,7 +66,7 @@ export default function CinemaModule2() {
                               className="col-4 col-xl-2 p-0"
                             />
                             <div className="col-8 col-xl-10 pl-3">
-                              <h5 className="text-white">{phim.tenPhim}</h5>
+                              <h5>{phim.tenPhim}</h5>
                               <div className="row col-12 m-0 p-0">
                                 {phim.lstLichChieuTheoPhim.map(
                                   (lichChieu, idx) => {
