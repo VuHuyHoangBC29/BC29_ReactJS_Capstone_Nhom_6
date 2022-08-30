@@ -153,7 +153,9 @@ export default function UserForm() {
             },
             {
               pattern:
-                "^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$",
+                "^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
+                "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
+                "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$",
               message: "Họ tên không đúng định dạng.",
             },
           ]}
@@ -188,7 +190,7 @@ export default function UserForm() {
               message: "Số điện thoại không được bỏ trống.",
             },
             {
-              pattern: "/^[0-9]+$/",
+              pattern: /^[0-9]+$/,
               message: "Số điện thoại không đúng định dạng.",
             },
           ]}
@@ -202,10 +204,10 @@ export default function UserForm() {
           rules={[
             {
               required: true,
-              message: "Số điện thoại không được bỏ trống.",
+              message: "Mật khẩu không được bỏ trống.",
             },
             {
-              pattern: "(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
+              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
               message:
                 "Mật khẩu phải có ít nhất 8 ký tự, bao gồm 1 chữ số, 1 chữ in hoa, 1 chữ thường.",
             },

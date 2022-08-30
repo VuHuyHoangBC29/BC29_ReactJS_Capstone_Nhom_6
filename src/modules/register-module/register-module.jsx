@@ -94,6 +94,7 @@ export default function RegisterModule() {
       notification.warning({ message: errors.response.data.content });
     }
   };
+  
   return (
     <div id="register">
       <div className="registerContent mx-auto py-5">
@@ -152,8 +153,9 @@ export default function RegisterModule() {
                       title="Mật khẩu"
                       required
                       name="matKhau"
-                      type="text"
+                      type="password"
                       className="form-control"
+                      pattern= "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />

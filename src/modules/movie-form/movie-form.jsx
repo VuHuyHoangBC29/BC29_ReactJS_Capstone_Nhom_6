@@ -145,11 +145,6 @@ export default function MovieForm() {
             required: true,
             message: "Tên phim không được bỏ trống.",
           },
-          {
-            pattern:
-              "^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹsW|_]+$",
-            message: "Tên phim không đúng định dạng.",
-          },
         ]}
       >
         <Input />
@@ -217,6 +212,10 @@ export default function MovieForm() {
         validateTrigger={["onBlur"]}
         rules={[
           { required: true, message: "Vui lòng điền số sao." },
+          {
+            pattern: /^[0-9]+$/,
+            message: "Số sao không đúng định dạng",
+          },
           { min: 1, message: "Số sao phải lớn hơn 0", type: "number" },
           {
             max: 10,
