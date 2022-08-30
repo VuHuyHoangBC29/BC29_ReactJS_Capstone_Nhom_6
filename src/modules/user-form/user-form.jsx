@@ -211,7 +211,7 @@ export default function UserForm() {
             },
           ]}
         >
-          <Input />
+          <Input.Password />
         </Form.Item>
         <Form.Item
           label="Mã nhóm"

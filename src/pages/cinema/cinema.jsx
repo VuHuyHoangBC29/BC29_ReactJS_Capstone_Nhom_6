@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Cinema() {
   return (
-    <div className="py-3">
+    <div>
       {/* <CinemaModule /> */}
       <CinemaModule2 />
     </div>

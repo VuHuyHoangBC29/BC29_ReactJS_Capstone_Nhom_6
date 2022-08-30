@@ -1,3 +1,4 @@
+import "./cinema-module.scss";
 import { Radio, Space, Tabs } from "antd";
 import { GROUP_ID } from "constants/common";
 import { useAsync } from "hook/useAsync";
@@ -16,34 +17,36 @@ export default function CinemaModule2() {
 
   console.log(cinemaInfo);
 
+  const [tabPosition, setTabPosition] = useState("top");
+
   const renderHeThongRap = () => {
     return cinemaInfo?.map((heThongRap, idx) => {
       return (
         <TabPane
-          tab={<img src={heThongRap.logo} className="img-fluid" width="20" />}
+          tab={<img src={heThongRap.logo} className="img-fluid" width="80" />}
           key={heThongRap.maHeThongRap}
           className="p-0"
         >
-          <Tabs tabPosition={"left"}>
+          <Tabs tabPosition={tabPosition}>
             {heThongRap.lstCumRap.map((cumRap, idx) => {
               return (
                 <TabPane
                   tab={
-                    <div
-                      style={{
-                        width: "300px",
-                      }}
-                      className="d-flex"
-                    >
+                    <div style={{ display: "flex" }} className="mx-auto my-3">
                       <img
                         src={heThongRap.logo}
-                        width="20"
-                        height="20"
+                        width="50"
+                        height="50"
                         alt="image"
                       />
                       <div className="pl-2 text-left">
                         {cumRap.tenCumRap}
-                        <p>{cumRap.diaChi}</p>
+                        <p className="text-white m-0">
+                          Địa chỉ:{" "}
+                          {cumRap.diaChi.length > 50
+                            ? cumRap.diaChi.substring(0, 30) + "..."
+                            : cumRap.diaChi}
+                        </p>
                       </div>
                     </div>
                   }
@@ -62,8 +65,8 @@ export default function CinemaModule2() {
                               alt={phim.tenPhim}
                               className="col-4 col-xl-2 p-0"
                             />
-                            <div className="col-8 col-xl-10 pl-3 ">
-                              <h5>{phim.tenPhim}</h5>
+                            <div className="col-8 col-xl-10 pl-3">
+                              <h5 className="text-white">{phim.tenPhim}</h5>
                               <div className="row col-12 m-0 p-0">
                                 {phim.lstLichChieuTheoPhim.map(
                                   (lichChieu, idx) => {
@@ -96,15 +99,18 @@ export default function CinemaModule2() {
               );
             })}
           </Tabs>
-          ;
         </TabPane>
       );
     });
   };
 
   return (
-    <>
-      <Tabs tabPosition={"left"}>{renderHeThongRap()}</Tabs>
-    </>
+    <div id="cinemaModule">
+      <div className="container py-3">
+        <Tabs tabPosition={tabPosition} centered={true}>
+          {renderHeThongRap()}
+        </Tabs>
+      </div>
+    </div>
   );
 }
