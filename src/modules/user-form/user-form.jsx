@@ -254,10 +254,21 @@ export default function UserForm() {
           </Select>
         </Form.Item>
 
-        <Form.Item className="mt-3">
-          <Button htmlType="submit" type="primary">
-            SAVE
-          </Button>
+        <Form.Item shouldUpdate className="mt-3">
+          {() => {
+            return (
+              <Button
+                htmlType="submit"
+                type="primary"
+                disabled={
+                  !form.isFieldsTouched() ||
+                  form.getFieldsError().some((ele) => ele.errors.length > 0)
+                }
+              >
+                SAVE
+              </Button>
+            );
+          }}
         </Form.Item>
       </Form>
     </div>

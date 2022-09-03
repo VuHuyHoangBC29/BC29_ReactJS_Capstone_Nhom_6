@@ -22,6 +22,7 @@ import {
   updateMovieUploadImage,
 } from "services/movie";
 import moment from "moment";
+import _, { isEmpty } from "lodash";
 
 export default function MovieForm() {
   const [componentSize, setComponentSize] = useState("default");
@@ -173,7 +174,7 @@ export default function MovieForm() {
         rules={[
           {
             validator: (rules, value) => {
-              if (value === "") {
+              if (isEmpty(value)) {
                 return Promise.reject("Mô tả không được bỏ trống.");
               }
 
@@ -230,10 +231,21 @@ export default function MovieForm() {
         <Input type="file" onChange={handleChangeImage} />
       </Form.Item>
       <Image src={image} />
-      <Form.Item className="mt-3">
-        <Button htmlType="submit" type="primary">
-          SAVE
-        </Button>
+      <Form.Item shouldUpdate className="mt-3">
+        {() => {
+          return (
+            <Button
+              htmlType="submit"
+              type="primary"
+              disabled={
+                !form.isFieldsTouched() ||
+                form.getFieldsError().some((ele) => ele.errors.length > 0)
+              }
+            >
+              SAVE
+            </Button>
+          );
+        }}
       </Form.Item>
     </Form>
   );
